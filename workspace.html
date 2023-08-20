@@ -561,7 +561,7 @@
               <div class="col-12 d-flex" style="gap: 10px;">
                 <p class="card-text"><a href="#" class="btn btn-primary" data-id="${item.workspace_id}">View</a></p>
                 <p class="card-text"><a href="#" class="btn btn-info" data-id="${item.workspace_id}">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger" data-id="${item.workspace_id}">Delete</a></p>
+                <p class="card-text"><a href="#" class="btn btn-danger delete-workspace" data-id="${item.workspace_id}">Delete</a></p>
               </div>
             </div>
           </div>
@@ -596,7 +596,48 @@
       .catch(error => {
         console.error('Error', error);
         // Handle login error here, e.g., display an error message to the user
-      });    }
+      });    
+    }
+
+    // Get all elements with the class "delete-workspace"
+    const deleteButtons = document.getElementsByClassName("delete-workspace");
+    console.log(deleteButtons);
+    // Iterate through the elements and add a click event listener to each
+    for (const button of deleteButtons) {
+      button.addEventListener("click", function(event) {
+        // Prevent the default click behavior (e.g., navigating to a new page)
+        event.preventDefault();
+
+        // Get the value of the "data-id" attribute
+        const dataId = button.getAttribute("data-id");
+
+        // Do something with the "data-id" value, such as sending it in an API request
+        console.log("Clicked delete button with data-id:", dataId);
+        deleteWorkspace(dataId);
+      });
+    }
+
+    function fetchWorkspaceData(id){}
+    function deleteWorkspace(id){
+      fetch(`http://localhost:8000/workspace/api/v1/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${accessToken}`,
+          'Content-Type': 'application/json'
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        window.location.reload();
+      })
+      .catch(error => {
+        console.error('Error', error);
+        // Handle login error here, e.g., display an error message to the user
+      });    
+
+    }
+    function updateWorkspace(id){}
 
 
   </script>
