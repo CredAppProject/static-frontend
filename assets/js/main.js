@@ -319,3 +319,51 @@
   }
 
 })();
+
+
+function loginUser(event) {
+  event.preventDefault();
+  const form = document.getElementById("loginForm");
+  const email = form.username.value;
+  const password = form.password.value;
+
+  // Create a JSON object with the email and password
+  const data = {
+    email: email,
+    password: password
+  };
+
+  console.log(data)
+
+  // Send a POST request to the API to authenticate the user
+  fetch('http://localhost:8000/accounts/api/auth/v1/login', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Assuming the API returns an object with 'accessToken' and 'refreshToken'
+    console.log(data);
+    const { refresh, access } = data;
+    if (access){
+      // Store the tokens in system storage (localStorage in this example)
+      localStorage.setItem('access', access);
+      localStorage.setItem('refresh', refresh);
+
+      // Optionally, you can redirect the user to another page or perform other actions
+      // after a successful login.
+      console.log('Login successful');
+      document.location.href = "profile-index.html";
+    } else {
+      alert("Login Failed")
+    }
+
+  })
+  .catch(error => {
+    console.error('Error logging in:', error);
+    // Handle login error here, e.g., display an error message to the user
+  });
+}

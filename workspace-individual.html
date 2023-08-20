@@ -354,9 +354,6 @@
               <li class="breadcrumb-item active">Profile</li>
             </ol>
         </div>
-        <div>
-          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#phdModal">Add Workspace</a>
-        </div>
       </div>
 
       </nav>
@@ -366,22 +363,22 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="modal fade" id="phdModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="secretKey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                   <div class="modal-content">
                   <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Add Workspace</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Add Secret Key</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form method="POST" action="" id="workspace_form" onsubmit="postWorkspaceData(event)">
+                      <form method="POST" action="" id="phd_form">
                           <div class="form-floating mb-3">
-                              <input type="name" class="form-control" id="scholar_name" name="workspace_name" placeholder="name" required>
-                              <label for="scholar_name">Workspace Name</label>
+                              <input type="name" class="form-control" id="scholar_name" name="secrey_key" placeholder="name" required>
+                              <label for="scholar_name">Key</label>
                           </div>
                           <div class="form-floating mb-3">
-                              <input type="name" class="form-control" id="scholar_name" name="workspace_category" placeholder="name" required>
-                              <label for="scholar_name">Workspace Category</label>
+                              <input type="name" class="form-control" id="scholar_name" name="secrey_value" placeholder="name" required>
+                              <label for="scholar_name">Value</label>
                           </div>
 
                           <div class="d-flex justify-content-center">
@@ -396,99 +393,154 @@
 
 
         <div class="col-12">
-          <div class="modal fade" id="editWorkspace" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="editSecretKey" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                   <div class="modal-content">
                   <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Workspace</h1>
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Edit Secret Key</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form method="POST" action="/phd" id="phd_form">
-                          <div class="form-floating mb-3">
-                              <input type="name" class="form-control" id="scholar_name" name="workspace_name" placeholder="name" required>
-                              <label for="scholar_name">Workspace Name</label>
-                          </div>
-                          <div class="form-floating mb-3">
-                              <input type="name" class="form-control" id="scholar_name" name="workspace_category" placeholder="name" required>
-                              <label for="scholar_name">Workspace Category</label>
-                          </div>
+                    <form method="POST" action="" id="phd_form">
+                      <div class="form-floating mb-3">
+                          <input type="name" class="form-control" id="scholar_name" name="secrey_key" placeholder="name" required>
+                          <label for="scholar_name">Key</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <input type="name" class="form-control" id="scholar_name" name="secrey_value" placeholder="name" required>
+                          <label for="scholar_name">Value</label>
+                      </div>
 
-                          <div class="d-flex justify-content-center">
-                              <button type="submit" class="btn btn-primary">Submit</button>                  
-                          </div>                                                                     
-                      </form>
+                      <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>                  
+                      </div>                                                                     
+                  </form>
                   </div>
                   </div>
               </div>
           </div>
         </div>
 
+        <div class="col-12">
+          <div class="modal fade" id="secretFile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                  <div class="modal-content">
+                  <div class="modal-header">
+                      <h1 class="modal-title fs-5" id="exampleModalLabel">Add Secret File</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <form method="POST" action="" id="phd_form">
+                      <div class="form-floating mb-3">
+                          <input type="name" class="form-control" id="scholar_name" name="secret_key" placeholder="name" required>
+                          <label for="scholar_name">Key</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                          <input type="file" class="form-control" id="scholar_name" name="secret_file" placeholder="name" required>
+                          <label for="scholar_name">File</label>
+                      </div>
+
+                      <div class="d-flex justify-content-center">
+                          <button type="submit" class="btn btn-primary">Submit</button>                  
+                      </div>                                                                     
+                  </form>
+                  </div>
+                  </div>
+              </div>
+          </div>
+        </div>
 
       </div>
     </div>
 
 
     <section class="section profile">
-      <div class="row" id="projects">
-        <div class="col-xl-6">
+      <div class="row">
+        <div class="col-xl-12">
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Project Name</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-              <div class="col-12 d-flex" style="gap: 10px;">
-                <p class="card-text"><a href="#" class="btn btn-primary">View</a></p>
-                <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
-              </div>
+              <h5 class="card-title">Workspace Name</h5>
+
+              <!-- Pills Tabs -->
+              <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Keys</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Files</button>
+                </li>
+              </ul>
+              <div class="tab-content pt-2" id="myTabContent">
+                <div class="tab-pane fade show active d-flex" style="gap: 5px;" id="pills-home" role="tabpanel" aria-labelledby="home-tab">
+                  <div>
+                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#secretKey">Add Secret Key</a>
+                  </div>
+                  <div class="col-xl-5">
+
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Key</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Value</h6>
+                        <div class="col-12 d-flex" style="gap: 10px;">
+                          <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
+                          <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>                
+                  <div class="col-xl-5">
+
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Key</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Value</h6>
+                        <div class="col-12 d-flex" style="gap: 10px;">
+                          <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
+                          <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>                
+                </div>
+                <div class="tab-pane fade d-flex" style="gap: 5px;" id="pills-profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div>
+                    <a href="" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#secretFile">Add Secret File</a>
+                  </div>
+                  <div class="col-xl-5">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">File</h5>
+                        <div class="col-12 d-flex" style="gap: 10px;">
+                          <p class="card-text"><a href="#" class="btn btn-primary">Download</a></p>
+                          <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>                
+                  <div class="col-xl-5">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">File</h5>
+                        <div class="col-12 d-flex" style="gap: 10px;">
+                          <p class="card-text"><a href="#" class="btn btn-primary">Download</a></p>
+                          <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
+                        </div>
+                      </div>
+                    </div>
+          
+                  </div>                
+                </div>
+
+              </div><!-- End Pills Tabs -->
+
             </div>
           </div>
 
         </div>
-        <div class="col-xl-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Project Name</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-              <div class="col-12 d-flex" style="gap: 10px;">
-                <p class="card-text"><a href="#" class="btn btn-primary">View</a></p>
-                <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-xl-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Project Name</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-              <div class="col-12 d-flex" style="gap: 10px;">
-                <p class="card-text"><a href="#" class="btn btn-primary">View</a></p>
-                <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-xl-6">
-
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Project Name</h5>
-              <h6 class="card-subtitle mb-2 text-muted">Category</h6>
-              <div class="col-12 d-flex" style="gap: 10px;">
-                <p class="card-text"><a href="#" class="btn btn-primary">View</a></p>
-                <p class="card-text"><a href="#" class="btn btn-info">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger">Delete</a></p>
-              </div>
-            </div>
-          </div>
 
         </div>
 
@@ -527,79 +579,7 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script>
-    // Get the access token from localStorage
-    const accessToken = localStorage.getItem('access');
 
-    // Make a GET request to the details API with the access token
-    fetch('http://localhost:8000/workspace/api/v1', {
-      headers: {
-        'Authorization': `Bearer ${accessToken}`
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      // Display the details on the dashboard
-      // Modify this code to display the details as needed
-      console.log(data);
-      displayProjects(data);
-    })
-    .catch(error => {
-      console.error('Error fetching details:', error);
-      // Handle error fetching details here
-    });
-
-    function displayProjects(data){
-     project_div = document.getElementById("projects");
-     project_div.innerHTML = "";
-     data.forEach(function(item) {
-       project = `        <div class="col-xl-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">${item.workspace_name}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">${item.category}</h6>
-              <div class="col-12 d-flex" style="gap: 10px;">
-                <p class="card-text"><a href="#" class="btn btn-primary" data-id="${item.workspace_id}">View</a></p>
-                <p class="card-text"><a href="#" class="btn btn-info" data-id="${item.workspace_id}">Edit</a></p>
-                <p class="card-text"><a href="#" class="btn btn-danger" data-id="${item.workspace_id}">Delete</a></p>
-              </div>
-            </div>
-          </div>
-
-          </div>`;
-       project_div.innerHTML += project;
-    });
-
-    }
-
-
-    function postWorkspaceData(event){
-      event.preventDefault();
-      form = document.getElementById("workspace_form");
-      const data = {
-        workspace_name: form.workspace_name.value,
-        category: form.workspace_category.value
-      };
-      fetch('http://localhost:8000/workspace/api/v1', {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${accessToken}`,
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log(data);
-        window.location.reload();
-      })
-      .catch(error => {
-        console.error('Error', error);
-        // Handle login error here, e.g., display an error message to the user
-      });    }
-
-
-  </script>
 </body>
 
 </html>
